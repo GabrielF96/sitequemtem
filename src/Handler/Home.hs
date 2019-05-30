@@ -3,11 +3,21 @@
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE QuasiQuotes #-}
 module Handler.Home where
 
 import Import
-import Network.HTTP.Types.Status
+import Text.Lucius
+import Text.Julius
 import Database.Persist.Postgresql
 
 getHomeR :: Handler Html
-getHomeR = undefined
+getHomeR = do
+    defaultLayout $ do
+        sess <- lookupSession "_ID"
+        addStylesheet $ StaticR css_bootstrap_css
+        $(whamletFile "templates/home.hamlet")
+        toWidget $(luciusFile "templates/home.lucius")
+        toWidgetHead $(juliusFile "templates/home.julius")
+        
+

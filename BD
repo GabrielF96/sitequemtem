@@ -1,0 +1,7 @@
+psql -h ec2-184-72-237-95.compute-1.amazonaws.com -U vknblqgypsyfrs -d d3dfm3m5vprvj3
+
+psql -h ec2-184-72-237-95.compute-1.amazonaws.com
+     -U vknblqgypsyfrs
+     -d d3dfm3m5vprvj3
+     
+2b4feedeb49c65ba880d22c5e3505e27593e3244945ac759484222818e968cb8

@@ -23,12 +23,28 @@ mkYesodData "App" $(parseRoutesFile "config/routes")
 
 instance Yesod App where
     makeLogger = return . appLogger
+    authRoute _ = Just $ LoginR
+    
+    isAuthorized LoginR _ = return Authorized
+    isAuthorized HomeR _ = return Authorized
+    isAuthorized UserR _ = return Authorized
+    isAuthorized _ _ = isUser
+
+isUser :: Handler AuthResult
+isUser = do
+    sess <- lookupSession "_ID"
+    case sess of
+        Just _ -> return Authorized
+        Nothing -> return AuthenticationRequired
+    
 
 instance YesodPersist App where
     type YesodPersistBackend App = SqlBackend
     runDB action = do
         master <- getYesod
         runSqlPool action $ appConnPool master
+        
+type Form a = Html -> MForm Handler (FormResult a, Widget)
 
 instance RenderMessage App FormMessage where
     renderMessage _ _ = defaultFormMessage
