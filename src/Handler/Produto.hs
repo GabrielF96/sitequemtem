@@ -52,11 +52,7 @@ postProdutoR cid = do
             let img = unpack $ fileName arq
             liftIO $ fileMove arq ("static/" ++ img)
             _ <- runDB $ insert (Produto nome descricao valor tipo cid img)
-            setMessage [shamlet|
-                <h1>
-                    PRODUTO CADASTRADO COM SUCESSO!
-            |]
-            redirect (ProdutoR cid)
+            redirect (MeusProdutosR cid)
         _ -> redirect (HomeR cid)
         
 getMeusProdutosR :: UsuarioId -> Handler Html
