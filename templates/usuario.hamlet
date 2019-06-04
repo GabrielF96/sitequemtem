@@ -4,8 +4,6 @@
     <div class="w3-bar w3-white w3-wide w3-padding w3-card">
         <a class="w3-bar-item w3-button"><b>Quem</b> Tem?
         <div class="w3-right w3-hide-small">
-            <a class="w3-bar-item w3-button">Alugar
-            <a href=@{LogoutR} class="w3-bar-item 0w3-button">Sair
             
 <!-- Usuario Section -->
     <div class="w3-container w3-padding-32" id="cadastroU">
