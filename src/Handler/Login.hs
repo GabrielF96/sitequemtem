@@ -24,9 +24,12 @@ getLoginR = do
         [whamlet|
             $maybe mensagem <- msg
                 ^{mensagem}
-            <form action=@{LoginR} method=post enctype=#{enctype}>
-                ^{widget}
-                <input type="submit" value="Log in">
+            <center>    
+                <form action=@{LoginR} method=post enctype=#{enctype}>
+                    ^{widget}
+                    <input type="submit" class="w3-button w3-black w3-section" value="LOGIN">
+                <p>Ainda não é usuario? Cadastre-se!
+                <input type="submit" class="w3-button w3-black w3-section" value"CADASTRE-SE">
             <!-- Footer -->
             <footer class="w3-center w3-black w3-padding-16">
                 <p>Powered by <a href="http://fatecrl.edu.br" title="FATEC RUBENS LARA" target="_blank" class="w3-hover-text-green">FATEC</a>
