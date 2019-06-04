@@ -15,21 +15,16 @@
     <div class="w3-display-middle w3-margin-top w3-center">
         <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Quem</b></span> <span class="w3-hide-small w3-text-light-black">Tem?</span></h1>
             
+<div class="w3-content w3-padding" style="max-width:1564px">
             
-<div class="w3-container w3-padding-32" id="produtos">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Produtos
+    <div class="w3-container w3-padding-32" id="produtos">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Meus Produtos
 
-<div class="w3-row-padding">
-    $forall (Entity pid produto) <- todosMP
-        <div class="w3-col l3 m6 w3-margin-bottom">
-            <div class="w3-display-container">
-                <div class="w3-display-topleft w3-black w3-padding">
-                <ul>
-                    <li>
-                        <img src={StaticR @{produtoImagem produto} ++ "_jpg"} style="width:100%">
-                    <li>
-                        #{produtoNmproduto produto}
-                    <li>
-                        #{produtoVlproduto produto}
-                
+    <div class="w3-row-padding">
+        $forall (Entity pid produto) <- todosMP
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <div class="w3-display-container">
+                    <img src=@{StaticR imgs_aluguel_jpg} style="width:100%">
+                    <h3>#{produtoNmproduto produto}</h3>
+                    <p>#{produtoDsproduto produto}
 
