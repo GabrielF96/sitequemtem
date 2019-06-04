@@ -32,12 +32,13 @@ getUsuarioR = do
     (widget,enctype) <- generateFormPost formUsuario
     defaultLayout $ do
         addStylesheet $ StaticR css_bootstrap_css
+        $(whamletFile "templates/usuario.hamlet")
         [whamlet|
             $maybe mensagem <- msg
                 ^{mensagem}
             <form action=@{UsuarioR} method=post enctype=#{enctype}>
                 ^{widget}
-                <input type="submit" value="Cadastrar">
+                <input type="submit" class="w3-button w3-black w3-section" value="CADASTRAR">
         |]
         
 postUsuarioR :: Handler Html
@@ -47,11 +48,7 @@ postUsuarioR = do
         FormSuccess (usr,confirmacao) -> do
             if confirmacao == (usuarioSenha usr) then do
                 runDB $ insert usr
-                setMessage [shamlet|
-                    <h1>
-                        USUARIO CADASTRADO!
-                |]
-                redirect UsuarioR
+                redirect LoginR
             else do
                 setMessage [shamlet|
                     <h1>
