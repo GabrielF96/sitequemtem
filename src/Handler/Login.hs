@@ -26,6 +26,9 @@ getLoginR = do
             <form action=@{LoginR} method=post enctype=#{enctype}>
                 ^{widget}
                 <input type="submit" value="Log in">
+            <!-- Footer -->
+            <footer class="w3-center w3-black w3-padding-16">
+                <p>Powered by <a href="http://fatecrl.edu.br" title="FATEC RUBENS LARA" target="_blank" class="w3-hover-text-green">FATEC</a>
         |]
 
 postLoginR :: Handler Html
