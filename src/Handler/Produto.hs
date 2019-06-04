@@ -35,12 +35,13 @@ getProdutoR cid = do
     (widget,enctype) <- generateFormPost (formProduto cid)
     defaultLayout $ do
         addStylesheet $ StaticR css_bootstrap_css
+        $(whamletFile "templates/mprodutos.hamlet")
         [whamlet|
             $maybe mensagem <- msg
                 ^{mensagem}
             <form action=@{ProdutoR cid} method=post enctype=#{enctype}>
                 ^{widget}
-                <input type="submit" value="Cadastrar">
+                <input type="submit" class="w3-button w3-black w3-section" value="Cadastrar">
         |]
         
 postProdutoR :: UsuarioId -> Handler Html
