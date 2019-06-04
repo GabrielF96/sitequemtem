@@ -73,5 +73,5 @@ getOutrosProdutosR cid = do
 getPerfilProdR :: UsuarioId -> ProdutoId -> Handler Html
 getPerfilProdR clid prid = do
     cliente <- runDB $ get404 clid
-    prod <- runDB $ get404 prid
+    produto <- runDB $ get404 prid
     defaultLayout $(whamletFile "templates/perfilproduto.hamlet")

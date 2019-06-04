@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a href=@{HomeR clid} class="w3-bar-item w3-button"><b>Quem</b> Tem?
+        <div class="w3-right w3-hide-small">
+            <a href=@{MeusProdutosR clid} class="w3-bar-item w3-button">Meus Produtos
+            <a href=@{ProdutoR clid} class="w3-bar-item w3-button">Cadastrar Produto
+            <a href=@{LogoutR} class="w3-bar-item 0w3-button">Sair
+            
+<div class="w3-content w3-padding" style="max-width:1564px">
+            
+    <div class="w3-container w3-padding-32" id="produtos">
+        <img src=@{StaticR imgs_aluguel_jpg} style="width:100%">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">#{produtoNmproduto produto}
+        <ul>
+            <li>
+                <p>#{produtoDsproduto produto}
+            <li>
+                <p>#{produtoVlproduto produto}
+            <form action="" method=post>
+                <input type="submit" class="w3-button w3-black w3-section" value="ALUGAR">
+    
+        
