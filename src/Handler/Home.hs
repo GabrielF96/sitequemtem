@@ -11,7 +11,7 @@ import Text.Lucius
 import Text.Julius
 import Database.Persist.Postgresql
 
-getHomeR :: UserId -> Handler Html
+getHomeR :: UsuarioId -> Handler Html
 getHomeR cid = do
     sess <- lookupSession "_ID"
     _ <- runDB $ get404 cid

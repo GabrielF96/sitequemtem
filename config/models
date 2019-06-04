@@ -1,13 +1,13 @@
-User
-    nome        Text
-    email       Text
-    senha       Text
-    cpf         Text
-    telefone    Text
-    cidade      Text
-    estado      Text
-    endereco    Text
-    UniqueEmail email
+Usuario
+    nome         Text
+    email        Text
+    senha        Text
+    cpf          Text
+    telefone     Text
+    cidade       Text
+    estado       EstadoId
+    endereco     Text
+    UniqueEmaill email
     deriving Show
     
 Tipo
@@ -19,14 +19,18 @@ Produto
     dsproduto   Text
     vlproduto   Double
     cdproduto   TipoId
-    cdusuario   UserId
+    cdusuario   UsuarioId
     imagem      String
     deriving Show
     
 Aluguel
     idproduto   ProdutoId
-    idusuario   UserId
+    idusuario   UsuarioId
     tempo       Text
     valor       Text
     dsaluguel   Text
+    deriving Show
+
+Estado
+    nome        Text
     deriving Show

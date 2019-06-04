@@ -4,54 +4,58 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE QuasiQuotes #-}
-module Handler.User where
+module Handler.Usuario where
 
 import Import
 import Database.Persist.Postgresql
 
-formUser :: Form (User, Text)
-formUser = renderBootstrap $ (,)
-    <$> (User
+formUsuario :: Form (Usuario, Text)
+formUsuario = renderBootstrap $ (,)
+    <$> (Usuario
             <$> areq textField "Nome: " Nothing
             <*> areq emailField "E-mail: " Nothing
             <*> areq passwordField "Senha: " Nothing
             <*> areq textField "CPF: " Nothing
             <*> areq textField "Telefone: " Nothing
             <*> areq textField "Cidade: " Nothing
-            <*> areq textField "Estado " Nothing
+            <*> areq (selectField listaEstado) "Estado " Nothing
             <*> areq textField "Endereço: " Nothing)
     <*> areq passwordField "Confirmação: " Nothing
-    
-getUserR :: Handler Html
-getUserR = do
+   
+listaEstado = do 
+    entidades <- runDB $ selectList [] [Asc EstadoNome]
+    optionsPairs $ fmap (\ent -> (estadoNome $ entityVal ent, entityKey ent)) entidades
+
+getUsuarioR :: Handler Html
+getUsuarioR = do
     msg <- getMessage
-    (widget,enctype) <- generateFormPost formUser
+    (widget,enctype) <- generateFormPost formUsuario
     defaultLayout $ do
         addStylesheet $ StaticR css_bootstrap_css
         [whamlet|
             $maybe mensagem <- msg
                 ^{mensagem}
-            <form action=@{UserR} method=post enctype=#{enctype}>
+            <form action=@{UsuarioR} method=post enctype=#{enctype}>
                 ^{widget}
                 <input type="submit" value="Cadastrar">
         |]
         
-postUserR :: Handler Html
-postUserR = do
-    ((res,_),_) <- runFormPost formUser
+postUsuarioR :: Handler Html
+postUsuarioR = do
+    ((res,_),_) <- runFormPost formUsuario
     case res of
         FormSuccess (usr,confirmacao) -> do
-            if confirmacao == (userSenha usr) then do
+            if confirmacao == (usuarioSenha usr) then do
                 runDB $ insert usr
                 setMessage [shamlet|
                     <h1>
                         USUARIO CADASTRADO!
                 |]
-                redirect UserR
+                redirect UsuarioR
             else do
                 setMessage [shamlet|
                     <h1>
                         CONFIRMACAO INCORRETA!
                 |]
-                redirect UserR
-        _ -> redirect UserR
+                redirect UsuarioR
+        _ -> redirect UsuarioR

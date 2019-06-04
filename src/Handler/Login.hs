@@ -33,10 +33,10 @@ postLoginR = do
     ((res,_),_) <- runFormPost formLogin
     case res of 
         FormSuccess (email,senha) -> do 
-            usu <- runDB $ getBy (UniqueEmail email)
+            usu <- runDB $ getBy (UniqueEmaill email)
             case usu of
-                Just (Entity uid user) -> do 
-                    if (senha == userSenha user) then do
+                Just (Entity uid usuario) -> do 
+                    if (senha == usuarioSenha usuario) then do
                         setSession "_ID" email
                         redirect (HomeR uid)
                     else do

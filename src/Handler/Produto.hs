@@ -9,7 +9,7 @@ module Handler.Produto where
 import Import
 import Database.Persist.Postgresql
 
-formProduto :: UserId -> Form (Text, Text, Double, TipoId, UserId, FileInfo)
+formProduto :: UsuarioId -> Form (Text, Text, Double, TipoId, UsuarioId, FileInfo)
 formProduto cid = renderBootstrap $ (,,,,,)
     <$> areq textField "Nome: " Nothing
     <*> areq textField "Descrição do Produto: " Nothing
@@ -28,7 +28,7 @@ tipoLista = do
     entidades <- runDB $ selectList [] [Asc TipoNmtipo]
     optionsPairs $ fmap (\ent -> (tipoNmtipo $ entityVal ent, entityKey ent)) entidades
     
-getProdutoR :: UserId -> Handler Html
+getProdutoR :: UsuarioId -> Handler Html
 getProdutoR cid = do
     _ <- runDB $ get404 cid
     msg <- getMessage
@@ -43,7 +43,7 @@ getProdutoR cid = do
                 <input type="submit" value="Cadastrar">
         |]
         
-postProdutoR :: UserId -> Handler Html
+postProdutoR :: UsuarioId -> Handler Html
 postProdutoR cid = do
     ((res,_),_) <- runFormPost (formProduto cid)
     case res of
@@ -58,13 +58,13 @@ postProdutoR cid = do
             redirect (ProdutoR cid)
         _ -> redirect (HomeR cid)
         
-getMeusProdutosR :: UserId -> Handler Html
+getMeusProdutosR :: UsuarioId -> Handler Html
 getMeusProdutosR cid = do
     _ <- runDB $ get404 cid
     todosMP <- runDB $ selectList [ProdutoCdusuario ==. cid] [Desc ProdutoCdusuario] 
     defaultLayout $(whamletFile "templates/produto.hamlet")
     
-getOutrosProdutosR :: UserId -> Handler Html
+getOutrosProdutosR :: UsuarioId -> Handler Html
 getOutrosProdutosR cid = do
     _ <- runDB $ get404 cid
     todosOP <- runDB $ selectList [ProdutoCdusuario !=. cid] [Asc ProdutoNmproduto]

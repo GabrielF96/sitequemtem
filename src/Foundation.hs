@@ -26,11 +26,11 @@ instance Yesod App where
     authRoute _ = Just $ LoginR
     
     isAuthorized LoginR _ = return Authorized
-    isAuthorized UserR _ = return Authorized
-    isAuthorized _ _ = isUser
+    isAuthorized UsuarioR _ = return Authorized
+    isAuthorized _ _ = isUsuario
 
-isUser :: Handler AuthResult
-isUser = do
+isUsuario :: Handler AuthResult
+isUsuario = do
     sess <- lookupSession "_ID"
     case sess of
         Just _ -> return Authorized
