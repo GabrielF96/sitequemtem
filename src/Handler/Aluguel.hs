@@ -32,3 +32,12 @@ getAluguelR cid pid = do
                 ^{widget}
                 <input type="submit" class="w3-button w3-black w3-section" value="CADASTRAR">
         |]
+        
+postAluguelR :: UsuarioId -> ProdutoId -> Handler Html
+postAluguelR cid pid = do
+    ((res,_),_) <- runFormPost (formAluguel cid pid)
+    case res of 
+        FormSuccess aluguel -> do 
+            aluid <- runDB $ insert aluguel
+            redirect (HomeR cid)
+        _ -> redirect (AluguelR cid pid) 
