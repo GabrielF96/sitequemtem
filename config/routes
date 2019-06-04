@@ -16,4 +16,3 @@
 
 /aluguel/#UsuarioId/#ProdutoId   AluguelR         GET POST
 /aluguel/#UsuarioId              AlugueisR        GET
-

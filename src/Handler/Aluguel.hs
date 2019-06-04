@@ -53,3 +53,8 @@ getAlugueisR usuid = do
     listaProd <- return $ map (\(Entity prodid _) -> prodid) prodTodos
     listaAlu <- runDB $ selectList [AluguelIdproduto <-. listaProd] [Desc AluguelId]
     defaultLayout $(whamletFile "templates/alugueisUsu.hamlet")
+    
+getPerfilAluR :: AluguelId -> Handler Html
+getPerfilAluR alugid = do
+    aluguel <- runDB $ get404 alugid
+    defaultLayout $(whamletFile "templates/aluguelPerfil.hamlet")
