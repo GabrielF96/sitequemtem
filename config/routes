@@ -14,3 +14,5 @@
 /produto/#UsuarioId/produtos     OutrosProdutosR  GET
 /produto/#UsuarioId/produtos/#ProdutoId PerfilProdR GET
 
+/aluguel/#UsuarioId/#ProdutoId   AluguelR         GET
+
