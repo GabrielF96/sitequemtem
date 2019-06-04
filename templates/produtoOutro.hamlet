@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a class="w3-bar-item w3-button"><b>Quem</b> Tem?
+        <div class="w3-right w3-hide-small">
+            <a href=@{MeusProdutosR cid} class="w3-bar-item w3-button">Meus Produtos
+            <a href=@{ProdutoR cid} class="w3-bar-item w3-button">Cadastrar Produto
+            <a class="w3-bar-item w3-button">Alugar
+            <a href=@{LogoutR} class="w3-bar-item 0w3-button">Sair
+            
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+    <img class="w3-image" src=@{StaticR quemtem_jpg} alt="Acordo" width="1500" height="400">
+    <div class="w3-display-middle w3-margin-top w3-center">
+        <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Quem</b></span> <span class="w3-hide-small w3-text-light-black">Tem?</span></h1>
+            
+            
+<div class="w3-container w3-padding-32" id="produtos">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Produtos
+
+<div class="w3-row-padding">
+    $forall (Entity pid produto) <- todosOP
+        <div class="w3-col l3 m6 w3-margin-bottom">
+            <div class="w3-display-container">
+                <div class="w3-display-topleft w3-black w3-padding">
+                <tr>
+                    <td>
+                        <img src=@{StaticR furadeira_jpg} style="width:100%">
+                    <td>
+                        #{produtoNmproduto produto}
+                    <td>
+                        #{produtoVlproduto produto}
+                

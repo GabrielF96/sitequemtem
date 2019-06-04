@@ -11,13 +11,13 @@ import Text.Lucius
 import Text.Julius
 import Database.Persist.Postgresql
 
-getHomeR :: Handler Html
-getHomeR = do
+getHomeR :: UserId -> Handler Html
+getHomeR cid = do
+    sess <- lookupSession "_ID"
+    _ <- runDB $ get404 cid
     defaultLayout $ do
-        sess <- lookupSession "_ID"
         addStylesheet $ StaticR css_bootstrap_css
         $(whamletFile "templates/home.hamlet")
         toWidget $(luciusFile "templates/home.lucius")
         toWidgetHead $(juliusFile "templates/home.julius")
         
-

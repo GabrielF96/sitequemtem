@@ -1,5 +1,5 @@
 User
-    nome Text
+    nome        Text
     email       Text
     senha       Text
     cpf         Text
@@ -20,6 +20,7 @@ Produto
     vlproduto   Double
     cdproduto   TipoId
     cdusuario   UserId
+    imagem      String
     deriving Show
     
 Aluguel

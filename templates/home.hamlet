@@ -4,12 +4,10 @@
     <div class="w3-bar w3-white w3-wide w3-padding w3-card">
         <a class="w3-bar-item w3-button"><b>Quem</b> Tem?
         <div class="w3-right w3-hide-small">
-            <a class="w3-bar-item w3-button">Meus Produtos
+            <a href=@{MeusProdutosR cid} class="w3-bar-item w3-button">Meus Produtos
+            <a href=@{ProdutoR cid} class="w3-bar-item w3-button">Cadastrar Produto
             <a class="w3-bar-item w3-button">Alugar
-            $maybe sessao <- sess
-                <a href=@{LogoutR} class="w3-bar-item w3-button">Sair
-            $nothing    
-                <a href=@{LoginR} class="w3-bar-item w3-button">Entrar
+            <a href=@{LogoutR} class="w3-bar-item w3-button">Sair
 
 <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
   <img class="w3-image" src="/w3images/architect.jpg" alt="Architecture" width="1500" height="800">

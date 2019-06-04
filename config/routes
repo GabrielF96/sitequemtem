@@ -3,10 +3,13 @@
 /favicon.ico FaviconR GET
 /robots.txt RobotsR GET
 
-/               HomeR    GET
+/home/#UserId                 HomeR         GET
 
-/user           UserR    GET POST
-/login          LoginR   GET POST
-/logout         LogoutR  GET
+/user                         UserR         GET POST
+/                             LoginR        GET POST
+/logout                       LogoutR       GET
 
-/produto        ProdutoR GET POST
+/produto/#UserId              ProdutoR      GET POST
+/produto/#UserId/meusprodutos MeusProdutosR GET
+/produto/#UserId/produtos     OutrosProdutosR GET
+

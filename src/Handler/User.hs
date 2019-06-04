@@ -54,4 +54,4 @@ postUserR = do
                         CONFIRMACAO INCORRETA!
                 |]
                 redirect UserR
-        _ -> redirect HomeR
+        _ -> redirect UserR

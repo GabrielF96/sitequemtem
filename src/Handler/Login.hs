@@ -35,19 +35,19 @@ postLoginR = do
         FormSuccess (email,senha) -> do 
             usu <- runDB $ getBy (UniqueEmail email)
             case usu of
-                Just (Entity _ user) -> do 
+                Just (Entity uid user) -> do 
                     if (senha == userSenha user) then do
                         setSession "_ID" email
-                        redirect HomeR
+                        redirect (HomeR uid)
                     else do
                         setMessage [shamlet| SENHA INVALIDA |]
                         redirect LoginR
                 Nothing -> do
                     setMessage [shamlet| E-MAIL INEXISTENTE |]
                     redirect LoginR
-        _ -> redirect LoginR
+        _ -> redirect LoginR 
         
 getLogoutR :: Handler Html
 getLogoutR = do 
     deleteSession "_ID"
-    redirect HomeR
+    redirect LoginR
