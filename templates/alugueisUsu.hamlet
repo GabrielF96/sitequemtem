@@ -24,9 +24,9 @@
         $forall (Entity aluid aluguel) <- listaAlu
             <div class="w3-col l3 m6 w3-margin-bottom">
                 <div class="w3-display-container">
-                    <a href=""><img src=@{StaticR imgs_contato_jpg} style="width:100%"></a>
+                    <a href=@{PerfilAluR aluid}><img src=@{StaticR imgs_contato_jpg} style="width:100%"></a>
                     <h3>#{aluguelDsaluguel aluguel}</h3>
-        
+                    
         
 <!-- Footer -->
 <footer class="w3-center w3-black w3-padding-16">

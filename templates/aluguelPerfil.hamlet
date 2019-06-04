@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a href="" class="w3-bar-item w3-button"><b>Quem</b> Tem?
+        <div class="w3-right w3-hide-small">
+            <a href=@{LogoutR} class="w3-bar-item w3-button">Sair
+            
+<div class="w3-content w3-padding" style="max-width:1564px">
+            
+    <div class="w3-container w3-padding-32" id="produtos">
+    <center>
+        <img src=@{StaticR imgs_propostas_jpg} class="w3-image" width="800" height="400">
+    
+    
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+    <p>Powered by <a href="http://fatecrl.edu.br" title="FATEC RUBENS LARA" target="_blank" class="w3-hover-text-green">FATEC</a>
