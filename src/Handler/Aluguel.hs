@@ -44,4 +44,4 @@ postAluguelR cid pid = do
         FormSuccess aluguel -> do 
             aluid <- runDB $ insert aluguel
             redirect (HomeR cid)
-        _ -> redirect (AluguelR cid pid) 
+        _ -> redirect (AluguelR cid pid)
