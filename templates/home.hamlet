@@ -31,6 +31,11 @@
                 <div class="w3-display-topleft w3-black w3-padding">Produtos para Alugar
                 <a href=@{OutrosProdutosR cid}><img src=@{StaticR eletronicos_jpg} alt="ProdutosAlugar" style="width:100%"></a>
                 
+        <div class="w3-col l3 m6 w3-margin-bottom">
+            <div class="w3-display-container">
+                <div class="w3-display-topleft w3-black w3-padding">Propostas de Aluguel
+                <a href=@{AlugueisR cid}><img src=@{StaticR imgs_propostas_jpg} alt="PropostasAlugar" style="width:100%"></a>    
+                
     <!-- About Section -->
     <div class="w3-container w3-padding-32" id="about">
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Sobre</h3>
