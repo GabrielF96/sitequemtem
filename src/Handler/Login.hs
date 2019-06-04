@@ -20,6 +20,7 @@ getLoginR = do
     (widget,enctype) <- generateFormPost formLogin
     defaultLayout $ do
         addStylesheet $ StaticR css_bootstrap_css
+        $(whamletFile "templates/login.hamlet")
         [whamlet|
             $maybe mensagem <- msg
                 ^{mensagem}
