@@ -45,3 +45,11 @@ postAluguelR cid pid = do
             aluid <- runDB $ insert aluguel
             redirect (HomeR cid)
         _ -> redirect (AluguelR cid pid)
+        
+getAlugueisR :: UsuarioId -> Handler Html
+getAlugueisR usuid = do
+    _ <- runDB $ get404 usuid
+    prodTodos <- runDB $ selectList [ProdutoCdusuario ==. usuid] []
+    listaProd <- return $ map (\(Entity prodid _) -> prodid) prodTodos
+    listaAlu <- runDB $ selectList [AluguelIdproduto <-. listaProd] [Desc AluguelId]
+    defaultLayout $(whamletFile "templates/alugueisUsu.hamlet")
