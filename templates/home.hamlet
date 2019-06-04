@@ -32,6 +32,12 @@
                 <div class="w3-display-topleft w3-black w3-padding">Produtos para Alugar
                 <a> <img src=@{StaticR eletronicos_jpg} alt="ProdutosAlugar" style="width:100%"></a>
                 
+    <!-- About Section -->
+    <div class="w3-container w3-padding-32" id="about">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Sobre</h3>
+        <p>O Quem Tem? é uma plataforma que auxiliará pessoas que desejam utilizar um objeto por algum tempo, sem necessidade
+        de compra, conectando-as com pessoas que tem esse objeto e não estão usando no momento. Nossa plataforma apenas facilitará
+        o encontro desses objetos, sem realizar e se responsabilizar por nenhuma transação financeira.
                 
                 
                 
