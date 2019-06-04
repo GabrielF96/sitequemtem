@@ -8,14 +8,21 @@
             <a href=@{ProdutoR cid} class="w3-bar-item w3-button">Cadastrar Produto
             <a class="w3-bar-item w3-button">Alugar
             <a href=@{LogoutR} class="w3-bar-item w3-button">Sair
-
+  
 <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
     <img class="w3-image" src=@{StaticR quemtem_jpg} alt="Architecture" width="1500" height="800">
     <div class="w3-display-middle w3-margin-top w3-center">
         <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Quem</b></span> <span class="w3-hide-small w3-text-light-grey">Tem?</span></h1>
-        
-<div class="w3-row-padding">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-        <div class="w3-display-container">
-            <div class="w3-display-topleft w3-black w3-padding">Meus Produtos
-            <a href=@{MeusProdutosR cid}> <img src=@{StaticR eletrodomesticos_jpg} alt="Meus Produtos" style="width:100%"></a>
+            
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+    <!-- Project Section -->
+    <div class="w3-container w3-padding-32" id="menu">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Menu
+
+    <div class="w3-row-padding">
+        <div class="w3-col l3 m6 w3-margin-bottom">
+            <div class="w3-display-container">
+                <div class="w3-display-topleft w3-black w3-padding">Meus Produtos
+                <a href=@{MeusProdutosR cid}> <img src=@{StaticR eletrodomesticos_jpg} alt="Meus Produtos" style="width:100%"></a>
