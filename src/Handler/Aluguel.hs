@@ -30,5 +30,5 @@ getAluguelR cid pid = do
                 ^{mensagem}
             <form action=@{AluguelR cid pid} method=post enctype=#{enctype}>
                 ^{widget}
-                <input type="submit" class="w3-button w3-black w3-section" value="Cadastrar">
+                <input type="submit" class="w3-button w3-black w3-section" value="CADASTRAR">
         |]
