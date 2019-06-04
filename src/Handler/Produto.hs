@@ -69,3 +69,9 @@ getOutrosProdutosR cid = do
     _ <- runDB $ get404 cid
     todosOP <- runDB $ selectList [ProdutoCdusuario !=. cid] [Asc ProdutoNmproduto]
     defaultLayout $(whamletFile "templates/produtoOutro.hamlet")
+
+getPerfilProdR :: UsuarioId -> ProdutoId -> Handler Html
+getPerfilProdR clid prid = do
+    cliente <- runDB $ get404 clid
+    prod <- runDB $ get404 prid
+    defaultLayout $(whamletFile "templates/perfilproduto.hamlet")

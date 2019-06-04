@@ -12,4 +12,5 @@
 /produto/#UsuarioId              ProdutoR         GET POST
 /produto/#UsuarioId/meusprodutos MeusProdutosR    GET
 /produto/#UsuarioId/produtos     OutrosProdutosR  GET
+/produto/#UsuarioId/produtos/#ProdutoId PerfilProdR GET
 

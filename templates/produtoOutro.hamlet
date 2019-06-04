@@ -25,7 +25,7 @@
         $forall (Entity pid produto) <- todosOP
             <div class="w3-col l3 m6 w3-margin-bottom">
                 <div class="w3-display-container">
-                    <a href=""><img src=@{StaticR imgs_aluguel_jpg} style="width:100%"></a>
+                    <a href=@{PerfilProdR cid pid}><img src=@{StaticR imgs_aluguel_jpg} style="width:100%"></a>
                     <h3>#{produtoNmproduto produto}</h3>
                     <p>#{produtoDsproduto produto}
                     
