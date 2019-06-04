@@ -27,8 +27,8 @@ Aluguel
     idproduto   ProdutoId
     idusuario   UsuarioId
     tempo       Text
-    valor       Text
     dsaluguel   Text
+    contato     Text
     deriving Show
 
 Estado

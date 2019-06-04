@@ -6,7 +6,6 @@
         <div class="w3-right w3-hide-small">
             <a href=@{MeusProdutosR cid} class="w3-bar-item w3-button">Meus Produtos
             <a href=@{ProdutoR cid} class="w3-bar-item w3-button">Cadastrar Produto
-            <a class="w3-bar-item w3-button">Alugar
             <a href=@{LogoutR} class="w3-bar-item w3-button">Sair
   
 <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
